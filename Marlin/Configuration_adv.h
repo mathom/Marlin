@@ -1470,7 +1470,7 @@
  * See http://marlinfw.org/docs/features/lin_advance.html for full instructions.
  * Mention @Sebastianv650 on GitHub to alert the author of any issues.
  */
-//#define LIN_ADVANCE
+#define LIN_ADVANCE
 #if ENABLED(LIN_ADVANCE)
   //#define EXTRA_LIN_ADVANCE_K // Enable for second linear advance constants
   #define LIN_ADVANCE_K 0.22    // Unit: mm compression per 1mm/s extruder speed
@@ -1497,7 +1497,7 @@
  * Useful to get probe points to exact positions on targets or
  * to allow leveling to avoid plate clamps on only specific
  * sides of the bed. With NOZZLE_AS_PROBE negative values are
- * allowed, to permit probing outside the bed.
+ * allowed, to permit probing outside the bed. 
  *
  * If you are replacing the prior *_PROBE_BED_POSITION options,
  * LEFT and FRONT values in most cases will map directly over
@@ -2237,7 +2237,7 @@
    * STEALTHCHOP_(XY|Z|E) must be enabled to use HYBRID_THRESHOLD.
    * M913 X/Y/Z/E to live tune the setting
    */
-  //#define HYBRID_THRESHOLD
+  #define HYBRID_THRESHOLD
 
   #define X_HYBRID_THRESHOLD     100  // [mm/s]
   #define X2_HYBRID_THRESHOLD    100
@@ -2278,8 +2278,10 @@
    *
    * IMPROVE_HOMING_RELIABILITY tunes acceleration and jerk when
    * homing and adds a guard period for endstop triggering.
+   *
+   * TMC2209 requires STEALTHCHOP enabled for SENSORLESS_HOMING
    */
-  //#define SENSORLESS_HOMING // StallGuard capable drivers only
+  #define SENSORLESS_HOMING // StallGuard capable drivers only
 
   /**
    * Use StallGuard2 to probe the bed with the nozzle.
@@ -2556,10 +2558,10 @@
  * echo:i2c-reply: from:99 bytes:5 data:hello
  */
 
+// @section i2cbus
+
 //#define EXPERIMENTAL_I2CBUS
-#if ENABLED(EXPERIMENTAL_I2CBUS)
-  #define I2C_SLAVE_ADDRESS  0  // Set a value from 8 to 127 to act as a slave
-#endif
+#define I2C_SLAVE_ADDRESS  0 // Set a value from 8 to 127 to act as a slave
 
 // @section extras
 
@@ -2588,7 +2590,7 @@
 
   // Duration to hold the switch or keep CHDK_PIN high
   //#define PHOTO_SWITCH_MS   50 // (ms) (M240 D)
-
+  
   /**
    * PHOTO_PULSES_US may need adjustment depending on board and camera model.
    * Pin must be running at 48.4kHz.
