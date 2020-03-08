@@ -1,6 +1,6 @@
 /**
  * Marlin 3D Printer Firmware
- * Copyright (c) 2019 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+ * Copyright (c) 2020 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
  *
  * Based on Sprinter and grbl.
  * Copyright (c) 2011 Camiel Gubbels / Erik van der Zalm
@@ -61,12 +61,12 @@ inline void toggle_pins() {
     pin_t pin = GET_PIN_MAP_PIN_M43(i);
     if (!VALID_PIN(pin)) continue;
     if (M43_NEVER_TOUCH(i) || (!ignore_protection && pin_is_protected(pin))) {
-      report_pin_state_extended(pin, ignore_protection, true, "Untouched ");
+      report_pin_state_extended(pin, ignore_protection, true, PSTR("Untouched "));
       SERIAL_EOL();
     }
     else {
       watchdog_refresh();
-      report_pin_state_extended(pin, ignore_protection, true, "Pulsing   ");
+      report_pin_state_extended(pin, ignore_protection, true, PSTR("Pulsing   "));
       #if AVR_AT90USB1286_FAMILY // Teensy IDEs don't know about these pins so must use FASTIO
         if (pin == TEENSY_E2) {
           SET_OUTPUT(TEENSY_E2);
