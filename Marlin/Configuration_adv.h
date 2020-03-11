@@ -1288,8 +1288,8 @@
 // Additional options for DGUS / DWIN displays
 //
 #if HAS_DGUS_LCD
-  #define DGUS_SERIAL_PORT 2
-  #define DGUS_BAUDRATE 250000
+  #define DGUS_SERIAL_PORT 3
+  #define DGUS_BAUDRATE 115200
 
   #define DGUS_RX_BUFFER_SIZE 128
   #define DGUS_TX_BUFFER_SIZE 48
