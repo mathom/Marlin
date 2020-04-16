@@ -475,9 +475,9 @@
   // If you are using a pre-configured hotend then you can use one of the value sets by uncommenting it
 
   // Ultimaker
-  #define DEFAULT_Kp 22.2
-  #define DEFAULT_Ki 1.08
-  #define DEFAULT_Kd 114
+  #define DEFAULT_Kp 24.85
+  #define DEFAULT_Ki 1.91
+  #define DEFAULT_Kd 81.02
 
   // MakerGear
   //#define DEFAULT_Kp 7.0
@@ -765,7 +765,7 @@
  * When changing speed and direction, if the difference is less than the
  * value set here, it may happen instantaneously.
  */
-#define CLASSIC_JERK
+//#define CLASSIC_JERK
 #if ENABLED(CLASSIC_JERK)
   #define DEFAULT_XJERK 10.0
   #define DEFAULT_YJERK 10.0
@@ -789,7 +789,8 @@
  *   http://blog.kyneticcnc.com/2018/10/computing-junction-deviation-for-marlin.html
  */
 #if DISABLED(CLASSIC_JERK)
-  #define JUNCTION_DEVIATION_MM 0.01 // (mm) Distance from real junction edge
+  #define JUNCTION_DEVIATION_MM 0.00 // (mm) Distance from real junction edge
+  // probably .08
 #endif
 
 /**
@@ -945,7 +946,7 @@
  *
  * Specify a Probe position as { X, Y, Z }
  */
-#define NOZZLE_TO_PROBE_OFFSET { -42, -5, -2.6 }
+#define NOZZLE_TO_PROBE_OFFSET { -42, -5, -3.250 }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
